@@ -20,7 +20,7 @@ py36:
 	  --build-arg NUMPY_BRANCH=${NUMPY_BRANCH} \
 	  --build-arg PYTHON_VERSION=3.6 \
 	  -t numpy-tester:${NUMPY_BRANCH}-${BASE_PYTAG}-${BASE_BINTAG} .
-	docker run -v $(shell pwd):/io \
+	docker run --rm -v $(shell pwd):/io \
 	  --cpuset-cpus=2-3 \
 	  -e LD_PRELOAD=/io/libbaihook.ubuntu16.04.x86_64.so \
 	  numpy-tester:${NUMPY_BRANCH}-${BASE_PYTAG}-${BASE_BINTAG}
@@ -41,7 +41,7 @@ py37:
 	  --build-arg NUMPY_BRANCH=${NUMPY_BRANCH} \
 	  --build-arg PYTHON_VERSION=3.7 \
 	  -t numpy-tester:${NUMPY_BRANCH}-${BASE_PYTAG}-${BASE_BINTAG} .
-	docker run -v $(shell pwd):/io \
+	docker run --rm -v $(shell pwd):/io \
 	  --cpuset-cpus=2-3 \
 	  -e LD_PRELOAD=/io/libbaihook.ubuntu16.04.x86_64.so \
 	  numpy-tester:${NUMPY_BRANCH}-${BASE_PYTAG}-${BASE_BINTAG}
@@ -62,7 +62,7 @@ py38:
 	  --build-arg NUMPY_BRANCH=${NUMPY_BRANCH} \
 	  --build-arg PYTHON_VERSION=3.8 \
 	  -t numpy-tester:${NUMPY_BRANCH}-${BASE_PYTAG}-${BASE_BINTAG} .
-	docker run -v $(shell pwd):/io \
+	docker run --rm -v $(shell pwd):/io \
 	  --cpuset-cpus=2-3 \
 	  -e LD_PRELOAD=/io/libbaihook.ubuntu16.04.x86_64.so \
 	  numpy-tester:${NUMPY_BRANCH}-${BASE_PYTAG}-${BASE_BINTAG}
